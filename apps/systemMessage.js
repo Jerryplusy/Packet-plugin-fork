@@ -7,13 +7,13 @@ export class GreyText extends plugin {
       priority: 500,
       rule: [{
         reg: '^#hz\\s*(.+?)',
-        fnc: 'sendGrey',
-        permission: 'master'
+        fnc: 'sendGrey'
       }]
     })
   }
 
   async sendGrey(e) {
+    if (!this.e.isMaster) return true
     const content = e.msg.substring(3).trim()
 
     const packet = {
