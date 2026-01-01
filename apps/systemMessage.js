@@ -7,7 +7,8 @@ export class GreyText extends plugin {
       priority: 500,
       rule: [{
         reg: '^#hz\\s*(.+?)',
-        fnc: 'sendGrey'
+        fnc: 'sendGrey',
+        permission: 'master'
       }]
     })
   }
