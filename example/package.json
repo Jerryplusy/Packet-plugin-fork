@@ -1,0 +1,19 @@
+{
+  "name": "packet-plugin-examples",
+  "version": "1.0.0",
+  "description": "独立的Packet插件功能示例",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "packet",
+    "plugin",
+    "example"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ulid": "^2.3.0"
+  }
+}
