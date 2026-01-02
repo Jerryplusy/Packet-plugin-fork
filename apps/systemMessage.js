@@ -9,7 +9,7 @@ export class GreyText extends plugin {
         reg: '^#hz\\s*(.+?)',
         fnc: 'sendGrey'
       }, {
-        reg: '^#(\\d+)sys\\s*\\+\\s*(.+)',
+        reg: '^#(\\d+)sys\\s+(.+)',
         fnc: 'sendGreyToGroup'
       }]
     })
@@ -56,7 +56,7 @@ export class GreyText extends plugin {
     if (!this.e.isMaster) return true
     
     // 解析群号和内容
-    const match = e.msg.match(/^#(\d+)sys\s*\+\s*(.+)/)
+    const match = e.msg.match(/^#(\d+)sys\s+(.+)/)
     if (!match) return true
     
     const groupId = match[1]
@@ -68,11 +68,7 @@ export class GreyText extends plugin {
       return true
     }
     
-    // 检查bot是否在目标群中
-    if (!e.bot || !e.bot.gl || !e.bot.gl.has(groupId)) {
-      e.reply(`未找到群 ${groupId}，请确认bot已加入该群`)
-      return true
-    }
+    
     
     // 获取群信息
     let group = null
